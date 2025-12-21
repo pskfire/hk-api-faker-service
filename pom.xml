@@ -40,6 +40,28 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+        <!-- 标准 Lombok 依赖 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version> <!-- 推荐使用稳定版，可按需更新 -->
+            <scope>provided</scope> <!-- 仅编译时生效，运行时无需打包 -->
+        </dependency>
+
+        <!-- Spring Boot Web Starter（包含 @RestController 所需的所有依赖） -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <!-- 无需手动指定版本！Spring Boot Parent 会自动适配兼容版本 -->
+        </dependency>
+
+        <!-- SpringDoc OpenAPI 核心依赖（支持 OpenAPI 3.0） -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.3.0</version> <!-- 稳定版，适配 Spring Boot 3.x -->
+        </dependency>
 	</dependencies>
 
 	<build>
