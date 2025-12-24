@@ -2,9 +2,11 @@ package com.manulife.hk.api.controller;
 
 import com.manulife.hk.domain.ChildrenCookieRequest;
 import com.manulife.hk.domain.MySqrtRequest;
+import com.manulife.hk.domain.SortRequest;
 import com.manulife.hk.domain.TwoSumRequest;
 import com.manulife.hk.service.BinarySearchService;
 import com.manulife.hk.service.GreedService;
+import com.manulife.hk.service.SortService;
 import com.manulife.hk.service.TwoPointersService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,9 @@ public class HelloWorldController {
 
     @Autowired
     private BinarySearchService binarySearchService;
+
+    @Autowired
+    private SortService sortService;
 
     @GetMapping(value = "/v1/hello", produces = {"application/json"})
     public String helloWorld() {
@@ -51,5 +56,10 @@ public class HelloWorldController {
     @PostMapping(value = "/v2/binary-search/sqrt", produces = {"application/json"})
     public ResponseEntity<Integer> sqrt2(MySqrtRequest request) {
         return ResponseEntity.ok(binarySearchService.newTonSqrt(request.getA()));
+    }
+
+    @PostMapping(value = "/v1/sort/quick-sort", produces = {"application/json"})
+    public ResponseEntity<int[]> quickSort(SortRequest request) {
+        return ResponseEntity.ok(sortService.quickSort(request.getArr()));
     }
 }

@@ -15,9 +15,7 @@ public class BinarySearchService {
         while(l <= r) {
             mid = l + (r - l) / 2;
             sqrt = a / mid;
-            if(sqrt == mid) {
-                return mid;
-            } else if(mid > sqrt) {
+            if(mid > sqrt) {
                 r =  mid - 1;
             } else {
                 l  = mid + 1;
