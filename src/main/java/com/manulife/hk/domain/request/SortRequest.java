@@ -1,4 +1,4 @@
-package com.manulife.hk.domain;
+package com.manulife.hk.domain.request;
 
 import lombok.Data;
 import lombok.ToString;

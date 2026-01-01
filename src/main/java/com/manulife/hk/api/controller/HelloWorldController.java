@@ -1,13 +1,13 @@
 package com.manulife.hk.api.controller;
 
-import com.manulife.hk.domain.ChildrenCookieRequest;
-import com.manulife.hk.domain.MySqrtRequest;
-import com.manulife.hk.domain.SortRequest;
-import com.manulife.hk.domain.TwoSumRequest;
-import com.manulife.hk.service.BinarySearchService;
-import com.manulife.hk.service.GreedService;
-import com.manulife.hk.service.SortService;
-import com.manulife.hk.service.TwoPointersService;
+import com.manulife.hk.domain.request.ChildrenCookieRequest;
+import com.manulife.hk.domain.request.MySqrtRequest;
+import com.manulife.hk.domain.request.SortRequest;
+import com.manulife.hk.domain.request.TwoSumRequest;
+import com.manulife.hk.service.study.BinarySearchService;
+import com.manulife.hk.service.study.GreedService;
+import com.manulife.hk.service.study.SortService;
+import com.manulife.hk.service.study.TwoPointersService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,11 +30,16 @@ public class HelloWorldController {
     @Autowired
     private BinarySearchService binarySearchService;
 
+    private String a = "a";
+
     @Autowired
     private SortService sortService;
 
     @GetMapping(value = "/v1/hello", produces = {"application/json"})
     public String helloWorld() {
+        a = a + "a";
+        log.info("...{}", a);
+        log.info("Thread = {}, a = {}", Thread.currentThread(), a);
         return "Hello world";
     }
 
